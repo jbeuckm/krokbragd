@@ -8,7 +8,30 @@ function App() {
 
   return (
     <div className="App">
-      <Krokbragd width={800} height={600} sett={sett} ppi={ppi} />
+      <div className="controls">
+        Sett = {sett}
+        <input
+          type="range"
+          min="1"
+          max="15"
+          value={sett}
+          id="sett"
+          /* @ts-ignore */
+          onChange={(event) => setSett(event.target.value)}
+        />
+        PPI = {ppi}
+        <input
+          type="range"
+          min="4"
+          max="100"
+          value={ppi}
+          id="ppi"
+          /* @ts-ignore */
+          onChange={(event) => setPpi(event.target.value)}
+        />
+      </div>
+
+      <Krokbragd width={600} height={800} sett={sett} ppi={ppi} />
     </div>
   );
 }

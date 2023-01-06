@@ -17,11 +17,11 @@ export const Krokbragd = ({ sett, ppi, width, height }: Props) => {
 
   const pathData = [];
 
-  const heightCount = height / stitchHeight;
+  const heightCount = height / stitchHeight + 1;
 
   for (let y = 0; y < heightCount; y++) {
-    pathData.push(`M ${(y % 2) * halfStitch} ${y * stitchHeight}`);
-    for (let x = 0; x < width; x += stitchWidth) {
+    pathData.push(`M ${-(y % 2) * halfStitch} ${y * stitchHeight}`);
+    for (let x = 0; x < width + stitchWidth; x += stitchWidth) {
       pathData.push(
         `c ${controlDx} 0, ${controlDx} ${stitchHeight}, ${halfStitch} ${stitchHeight}`
       );
